@@ -10,15 +10,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker build -t TEirola/react-test -f ./client/Dockerfile.dev ./client
-      - run: docker run -e CI=true TEirola/react-test npm test -- --coverage
+      - run: docker build -t tommieirola2/react-test -f ./client/Dockerfile.dev ./client
+      - run: docker run -e CI=true tommieirola2/react-test npm test -- --coverage
 
-      - run: docker build -t TEirola/multi-client ./client
-      - run: docker build -t TEirola/multi-nginx ./nginx
-      - run: docker build -t TEirola/multi-server ./server
-      - run: docker build -t TEirola/multi-worker ./worker
+      - run: docker build -t tommieirola2/multi-client ./client
+      - run: docker build -t tommieirola2/multi-nginx ./nginx
+      - run: docker build -t tommieirola2/multi-server ./server
+      - run: docker build -t tommieirola2/multi-worker ./worker
 
-      - run: docker push TEirola/multi-client
-      - run: docker push TEirola/multi-nginx
-      - run: docker push TEirola/multi-server
-      - run: docker push TEirola/multi-worker
+      - run: docker push tommieirola2/multi-client
+      - run: docker push tommieirola2/multi-nginx
+      - run: docker push tommieirola2/multi-server
+      - run: docker push tommieirola2/multi-worker
